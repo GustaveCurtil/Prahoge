@@ -3,6 +3,11 @@
 <body>
     <div class="pagewrapper nevenpagina">
         @include('_partials.header') 
+        <address class="ipad">
+            <p>Dr. Gerda Eggermont</p>
+            <p><a href="tel:+123456789">022703399</a></p>
+            <p><a href="https://maps.app.goo.gl/f1uRKZNwRBqp3q6f9" target="_blank">Kanariestraat 57, 9000 Gent</a></p>
+        </address>
 
         <section class="terug">
             <a href="{{ route('landingspagina') }}">terug naar landingspagina</a>
@@ -23,12 +28,8 @@
                     <input type="tel" name="nummer" id="nummer" required>
                 </div>
                 <div>
-                    <label for="onderwerp">Onderwerp</label>
-                    <input type="text" name="onderwerp" id="onderwerp">
-                </div>
-                <div>
-                    <label for="boodschap">Boodschap</label>
-                    <textarea name="boodschap" id="boodschap" cols="30" rows="10"></textarea>
+                    <label for="boodschap">Boodschap <b>*</b></label>
+                    <textarea name="boodschap" id="boodschap" cols="30" rows="10" required></textarea>
                 </div>
                 <div>
                     <label for="robot">Hoeveel letters telt P R A H O G E ? <b>*</b></label>

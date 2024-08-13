@@ -2,7 +2,12 @@
 
 <body>
     <div class="pagewrapper nevenpagina">
-        @include('_partials.header') 
+        @include('_partials.header')
+        <address class="ipad">
+            <p>Dr. Gerda Eggermont</p>
+            <p><a href="tel:+123456789">022703399</a></p>
+            <p><a href="https://maps.app.goo.gl/f1uRKZNwRBqp3q6f9" target="_blank">Kanariestraat 57, 9000 Gent</a></p>
+        </address>
 
         <section class="terug">
             <a href="{{ route('landingspagina') }}">terug naar landingspagina</a>

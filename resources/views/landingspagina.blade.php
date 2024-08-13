@@ -2,9 +2,7 @@
 
 <body>
     <div class="pagewrapper">
-
         @include('_partials.header') 
-
         <address>
             <p>Dr. Gerda Eggermont</p>
             <p><a href="tel:+123456789">022703399</a></p>

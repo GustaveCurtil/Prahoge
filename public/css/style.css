@@ -2,7 +2,7 @@
 
 :root {
     --sloganBreedte: 9em;
-    --footerHoogte: 8svh;
+    --footerHoogte: 3em;
     --headerHoogte: 3.4em;
     --tussenruimte: 1.6em;
     --miniruimte: calc(var(--tussenruimte) / 4);
@@ -20,25 +20,26 @@ a {color: var(--zwart);}
 h3 { color: var(--rood); margin-bottom: var(--miniruimte); }
 h4 { color: var(--zwart); margin: calc(var(--tussenruimte) / 2) 0 var(--miniruimte) 0; font-weight: 400;}
 
-@media only screen and (max-width: 600px)  { html { font-size: 18px; }}
-@media only screen and (min-width: 600px)  { html { font-size: 19px; } body { background-color: rgba(128, 255, 0, 0.385); }}
+@media only screen and (max-width: 600px)  { html { font-size: 17px; }}
+@media only screen and (min-width: 600px)  { html { font-size: 17px; } body { background-color: rgba(128, 255, 0, 0.385); }}
 @media only screen and (min-width: 768px) { html { font-size: 18px; } body { background-color: rgba(0, 255, 247, 0.458); } } /*ipad air, mini*/
-@media only screen and (min-width: 992px) { html { font-size: 21px; } body { background-color: rgba(255, 208, 0, 0.382); }} /*ipad pro*/
+@media only screen and (min-width: 992px) { html { font-size: 19px; } body { background-color: rgba(255, 208, 0, 0.382); }} /*ipad pro*/
 @media only screen and (min-width: 1200px) { html { font-size: 20px; } body { background-color: rgba(255, 0, 208, 0.375); }}
+@media only screen and (min-width: 1200px) and (max-height: 800px) { html { font-size: 16px; } body { background-color: rgba(255, 0, 208, 0.375); }}
 
 body { background-color: var(--wit);}
 
 body {height: 100svh; width: 100vw; display: flex; justify-content: center; overflow-x: hidden !important; font-weight: 300 !important;}
 body div.pagewrapper { height: 100svh; width: 90vw;}
 
-header { width: 100%;height: calc(var(--headerHoogte) + 2 * var(--tussenruimte));}
-header a { width: 100%; height: calc(var(--headerHoogte) + 2 * var(--tussenruimte)); display: flex; justify-content: space-between; align-items: center; color: black; text-decoration: none;}
+header { width: 100%; height: var(--headerHoogte); margin: var(--tussenruimte) 0;}
+header a { width: 100%; height: var(--headerHoogte); display: flex; justify-content: space-between; align-items: center; color: black; text-decoration: none;}
 header a h1 { font-size: 1.5em; color: var(--rood); font-weight: 500;}
 header a h2 { font-size: 1em; line-height: 1.3; font-weight: 300;}
 header a h2 b { color: var(--rood); font-weight: 700;}
-header a img { height: 3.4em; }
+header a img { height: var(--headerHoogte); }
 
-address { border: 1px dotted var(--zwart); padding: calc(var(--tussenruimte) / 2); text-align: center; margin-bottom: var(--tussenruimte); }
+address { border: 1px dotted var(--zwart); padding: var(--miniruimte); text-align: center; margin-bottom: var(--tussenruimte); }
 
 section.afspraak, section.terug {height: 2em; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: var(--tussenruimte);}
 section a { font-weight: 400;}
@@ -48,7 +49,7 @@ figure { width: 100%; object-fit: cover; margin-bottom: var(--tussenruimte);}
 figure img { width: 100% ;}
 figure.desktop {display: none;}
 
-.nevenpagina main { min-height: calc(100svh - var(--headerHoogte) - var(--footerHoogte) - 2em - 3*var(--tussenruimte)); width: 100%;}
+.nevenpagina main { min-height: calc(100svh - var(--headerHoogte) - var(--footerHoogte) - 2em - 3*var(--tussenruimte) - 5vw); width: 100%; justify-content: center;}
 
 footer { height: var(--footerHoogte); display: flex; justify-content: space-between; align-items: center; font-style: italic;}
 
@@ -64,12 +65,28 @@ p, ul { line-height: 1.4em;}
 form { width: 100%; }
 form div { width: 100%; display: flex; flex-direction: column; }
 form div input, form div textarea { border-radius: 0; border: 1px solid var(--zwart); margin: var(--miniruimte) 0 calc(var(--miniruimte) * 2) 0; font-size: 1em;}
-form div input { height: 2em;}
+form div input:not(input[type="submit"]) { height: 1.6em;}
+form div textarea { height: 6.4em;}
 form div#verzenden { width: 100%; display: flex; align-items: center; margin: var(--miniruimte) 0; }
 form div#verzenden input { width: fit-content; padding: var(--miniruimte) calc(var(--miniruimte) * 2); background-color: var(--rood); color: var(--wit); border: none; font-size: 1em;}
 
+.ipad {display: none;}
+
 /*VOOR DEN IPAD*/
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 650px) and (orientation: portrait), only screen and (min-width: 800px) and (orientation:landscape) {
+    /* body .pagewrapper {line-height: 0;} */
+    header {display: inline-flex; justify-content: center; width: 48%; margin-right: 3.3%; box-sizing: border-box; vertical-align: top; margin-top: calc(2 * var(--tussenruimte)); }
+    header a {width: 100%;}
+
+    address {display: inline-flex; flex-direction: column; justify-content: center; box-sizing: border-box; vertical-align: top; align-items: center; height: calc(var(--headerHoogte) + 2 * var(--tussenruimte));     width: 48%;
+        margin-left: 0; margin-bottom: 0; margin-top: var(--tussenruimte);}
+
+        .afspraak, .terug {
+            margin-top: var(--tussenruimte);
+        }
+
+        .afspraak a {width: 100%; text-align: center;}
+
     .opleidingen {grid-area: opleidingen; height: min-content;}
     .visie {grid-area: visie;}
     .mobile {grid-area: figure; height: var(--opleidingenHoogte);}
@@ -77,84 +94,28 @@ form div#verzenden input { width: fit-content; padding: var(--miniruimte) calc(v
     .betekenen {grid-area: betekenen;}
 
     main:not(.nevenpagina main) {
-        display: grid; grid-template-columns: 0.5fr 1fr; grid-template-rows: auto auto auto; column-gap: var(--tussenruimte);
+        min-height: calc(100svh - var(--headerHoogte) - var(--footerHoogte) - 2em - 5 * var(--tussenruimte));
+        display: grid; grid-template-columns: 0.5fr 1fr; grid-template-rows: min-content min-content min-content; gap: var(--tussenruimte);
         grid-template-areas: 
         "visie visie"
         "betekenen betekenen"
         "figure opleidingen";
     }
 
-    .nevenpagina main {display: flex; flex-direction: column; align-items: center;}
+    .nevenpagina main {display: flex; flex-direction: column; align-items: center; 
+        min-height: calc(100svh - var(--headerHoogte) - var(--footerHoogte) - 2em - 5 * var(--tussenruimte));}
+    .ipad {display: inline-flex;}
     form { width: 100%; max-width: 600px;}
     main.privacyverklaring {display: block;}
 }
 
-@media only screen and (min-width: 1500px) { 
-    body {
-        height: 100svh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow-y: hidden;
+@media only screen and (min-width: 1200px) and (orientation:landscape) and (min-height: 710px) {
+    body {background-color: #ed1b265c;}
+    html {font-size: 2svh;}
+    .pagewrapper {
+        display: grid;
+        grid-template-columns: 50svh;
     }
 
-    body div.pagewrapper:not(.nevenpagina) {
-        max-width: 1690px;
-        height: 100svh;
-        display: grid; grid-template-columns: 2fr 5fr; grid-template-rows: calc(var(--headerHoogte) + 2 * var(--tussenruimte)) var(--addressHoogte) calc(var(--mainHoogte) - var(--addressHoogte)) var(--footerHoogte); column-gap: var(--tussenruimte);
-        grid-template-areas: 
-        "header afspraak"
-        "address main"
-        "figure main"
-        "footer footer";
-        row-gap: var(--tussenruimte);
-    }
-
-    body div.nevenpagina {
-        max-width: 1690px;
-        height: auto;
-        display: grid; grid-template-columns: auto 600px auto; grid-template-rows: calc(var(--headerHoogte) + 2 * var(--tussenruimte)) auto var(--footerHoogte); column-gap: var(--tussenruimte);
-        grid-template-areas: 
-        "header . terug"
-        ". main ."
-        "footer footer footer";
-        row-gap: var(--tussenruimte)
-    }
-
-
-    header {grid-area: header;}
-    .afspraak {grid-area: afspraak;}
-    address {grid-area:address; height: min-content;}
-    figure.desktop {grid-area: figure; display: block; margin: 0; height: calc(var(--mainHoogte) - var(--addressHoogte));}
-    figure.mobile {display: none;}
-    main {grid-area: main;}
-    footer {grid-area: footer;}
-    .terug {grid-area: terug;}
-
-    main:not(.nevenpagina main) {
-        height: min-content;
-        grid-template-columns: 1.8fr 1fr;
-        grid-template-rows: min-content auto;
-        grid-template-areas: 
-        "visie visie"
-        "betekenen opleidingen";
-    }
-
-    body:has(.nevenpagina) {
-        overflow: auto;
-        min-height: 100svh;
-        height: auto;
-    }
-    .nevenpagina main {
-        height: fit-content;
-        min-height: 100svh;
-        overflow-y: auto;
-    }
-
-    .opleidingen, .betekenen, address {
-        margin: 0;
-        height: min-content;
-    }
-    section.afspraak, section.terug {margin: 0; height: calc(var(--headerHoogte) + 2 * var(--tussenruimte)); width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: end;}
-}
+    .visie {grid-area: ;}
+ }
