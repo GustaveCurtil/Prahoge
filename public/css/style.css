@@ -4,7 +4,7 @@
     --sloganBreedte: 9em;
     --footerHoogte: 3em;
     --headerHoogte: 3.4em;
-    --tussenruimte: 1.6em;
+    --tussenruimte: 4svh;
     --miniruimte: calc(var(--tussenruimte) / 4);
     --opleidingenHoogte: ;
     --addressHoogte: ;
@@ -13,33 +13,30 @@
 
     --rood:#ED1B24;
     --wit: #FFFBF9;
-    --zwart: rgb(39, 39, 39);
+    --zwart: rgb(50, 50, 50);
 }
 
 a {color: var(--zwart);}
+b {font-weight: 400; color: var(--zwart);}
+p, ul { color: var(--zwart);}
 h3 { color: var(--rood); margin-bottom: var(--miniruimte); }
 h4 { color: var(--zwart); margin: calc(var(--tussenruimte) / 2) 0 var(--miniruimte) 0; font-weight: 400;}
 
 @media only screen and (max-width: 600px)  { html { font-size: 17px; }}
-@media only screen and (min-width: 600px)  { html { font-size: 17px; } body { background-color: rgba(128, 255, 0, 0.385); }}
-@media only screen and (min-width: 768px) { html { font-size: 18px; } body { background-color: rgba(0, 255, 247, 0.458); } } /*ipad air, mini*/
-@media only screen and (min-width: 992px) { html { font-size: 19px; } body { background-color: rgba(255, 208, 0, 0.382); }} /*ipad pro*/
-@media only screen and (min-width: 1200px) { html { font-size: 20px; } body { background-color: rgba(255, 0, 208, 0.375); }}
-@media only screen and (min-width: 1200px) and (max-height: 800px) { html { font-size: 16px; } body { background-color: rgba(255, 0, 208, 0.375); }}
 
 body { background-color: var(--wit);}
 
 body {height: 100svh; width: 100vw; display: flex; justify-content: center; overflow-x: hidden !important; font-weight: 300 !important;}
-body div.pagewrapper { height: 100svh; width: 90vw;}
+body div.pagewrapper { height: 100svh; width: 90vw; position: relative;}
 
 header { width: 100%; height: var(--headerHoogte); margin: var(--tussenruimte) 0;}
 header a { width: 100%; height: var(--headerHoogte); display: flex; justify-content: space-between; align-items: center; color: black; text-decoration: none;}
 header a h1 { font-size: 1.5em; color: var(--rood); font-weight: 500;}
-header a h2 { font-size: 1em; line-height: 1.3; font-weight: 300;}
+header a h2 { font-size: 1em; line-height: 1.3; font-weight: 300; color: var(--zwart);}
 header a h2 b { color: var(--rood); font-weight: 700;}
 header a img { height: var(--headerHoogte); }
 
-address { border: 1px dotted var(--zwart); padding: var(--miniruimte); text-align: center; margin-bottom: var(--tussenruimte); }
+address { border: 0.1em dotted var(--zwart); padding: var(--miniruimte); text-align: center; margin-bottom: var(--tussenruimte); }
 
 section.afspraak, section.terug {height: 2em; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: var(--tussenruimte);}
 section a { font-weight: 400;}
@@ -69,6 +66,7 @@ form div input:not(input[type="submit"]) { height: 1.6em;}
 form div textarea { height: 6.4em;}
 form div#verzenden { width: 100%; display: flex; align-items: center; margin: var(--miniruimte) 0; }
 form div#verzenden input { width: fit-content; padding: var(--miniruimte) calc(var(--miniruimte) * 2); background-color: var(--rood); color: var(--wit); border: none; font-size: 1em;}
+div.error {color: #ED1B24; width: 700;}
 
 .ipad {display: none;}
 
@@ -95,27 +93,160 @@ form div#verzenden input { width: fit-content; padding: var(--miniruimte) calc(v
 
     main:not(.nevenpagina main) {
         min-height: calc(100svh - var(--headerHoogte) - var(--footerHoogte) - 2em - 5 * var(--tussenruimte));
-        display: grid; grid-template-columns: 0.5fr 1fr; grid-template-rows: min-content min-content min-content; gap: var(--tussenruimte);
+        display: grid; grid-template-columns: 0.5fr 1fr; grid-template-rows: min-content min-content min-content min-content; gap: var(--tussenruimte);
         grid-template-areas: 
         "visie visie"
         "betekenen betekenen"
-        "figure opleidingen";
+        "figure opleidingen"
+        "dankzij dankzij";
     }
 
+    main section { margin-bottom: 0;}
+    figure {margin-bottom: 0}
     .nevenpagina main {display: flex; flex-direction: column; align-items: center; 
-        min-height: calc(100svh - var(--headerHoogte) - var(--footerHoogte) - 2em - 5 * var(--tussenruimte));}
+        min-height: calc(100svh - var(--headerHoogte) - var(--footerHoogte) - 2em - 6 * var(--tussenruimte));}
     .ipad {display: inline-flex;}
     form { width: 100%; max-width: 600px;}
     main.privacyverklaring {display: block;}
+    .dankzij {grid-area: dankzij;}
+    footer {margin-top: var(--tussenruimte);}
 }
 
-@media only screen and (min-width: 1200px) and (orientation:landscape) and (min-height: 710px) {
-    body {background-color: #ed1b265c;}
-    html {font-size: 2svh;}
-    .pagewrapper {
-        display: grid;
-        grid-template-columns: 50svh;
+@media only screen and (min-width: 1200px) and (orientation:landscape) and (min-height: 690px) and (aspect-ratio >= 15/12) {
+    html {
+        font-size: 13px;
     }
 
-    .visie {grid-area: ;}
+    header { position: absolute; top: 0; left: 0;}
+    .afspraak, .terug { position: absolute; top: 0; left: 100%; transform: translateX(-100%);}
+    footer { position: absolute; bottom: 0; left: 0;}
+
+    header {
+        width: calc((100% / 3) - 0.5 * var(--tussenruimte));
+        height: 6em;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    section.afspraak, section.terug {
+        width: max-content;
+        margin: 0;
+        height: 6em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    footer {
+        width: 100%;
+        height: 6em;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    address {
+        margin: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    body {
+
+        justify-content: center;
+        overflow-y:hidden;
+    }
+
+    body div.pagewrapper {
+        display: grid; grid-template-columns: 0.5fr 1fr; gap: var(--tussenruimte);
+        align-content: center;
+        grid-template-areas: 
+        "address main"
+        "figure main";
+        margin: var(--tussenruimte) 0;
+        height: calc(100svh - 2 * var(--tussenruimte));
+    }
+
+    address {
+        grid-area: address;
+    }
+
+    figure.mobile {
+        display: none;
+    }
+
+    figure.desktop {
+        display: block;
+        grid-area: figure;
+        height: calc(var(--mainHoogte) - var(--headerHoogte) - 0 * var(--tussenruimte));
+    }
+
+    main:not(.nevenpagina main) {
+        row-gap: var(--tussenruimte);
+        grid-area: main;
+        height: min-content;
+        min-height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .visie {
+        height: min-content;
+    }
+
+    .opleidingen {
+        width: 41%;
+        height: min-content;
+    }
+
+    .betekenen {
+        width: 52%;
+        height: min-content;
+    }
+
+    .nevenpagina address {
+        display: none;
+    }
+
+    body div.nevenpagina {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body div.nevenpagina main:not(main.privacyverklaring) {
+        width: calc(100% / 3 - 1.5 * var(--tussenruimte));
+    }
+
+    form div#verzenden input { margin-bottom: 0;}
+
+
+    main.privacyverklaring {
+        width: 100%;
+        height: fit-content;
+        columns: 2;
+        margin: 0 auto;
+        min-height: auto;
+    }
  }
+
+ @media only screen and (min-width: 1500px) and (orientation:landscape) and (min-height: 710px) and (aspect-ratio >= 16/12) {
+    html {
+        font-size: 17px;
+    }
+
+    body div.pagewrapper {
+        width: 75vw;
+        min-width: 1400px;
+        
+    }
+
+    header, footer, section.afspraak {
+        height: 6em;
+    }
+}

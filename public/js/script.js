@@ -3,6 +3,7 @@ let slogan = document.querySelector('header a h2');
 let header = document.querySelector('header a');
 let opleidingen = document.querySelector('.opleidingen');
 let betekenen = document.querySelector('.betekenen');
+let dankzij = document.querySelector('.dankzij');
 let main = document.querySelector('main:not(.nevenpagina)')
 let address = document.querySelector('address')
 let visie = document.querySelector('.visie')
@@ -20,5 +21,5 @@ function myFunction_set() {
   r.style.setProperty('--headerBreedte', header.clientWidth + 'px');
   r.style.setProperty('--opleidingenHoogte', opleidingen.clientHeight + 'px');
   r.style.setProperty('--addressHoogte', address.clientHeight + 'px');
-  r.style.setProperty('--mainHoogte', 'calc(' + visie.clientHeight + 'px + ' + betekenen.clientHeight + 'px + ' + holistisch.getPropertyValue('--miniruimte') + ')');
+  r.style.setProperty('--mainHoogte', 'calc(' + visie.clientHeight + 'px + ' + betekenen.clientHeight + 'px + ' + dankzij.clientHeight + 'px)');
 }

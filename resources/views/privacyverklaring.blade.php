@@ -10,7 +10,7 @@
         </address>
 
         <section class="terug">
-            <a href="{{ route('landingspagina') }}">terug naar landingspagina</a>
+            <a href="{{ route('landingspagina') }}">terug naar beginpagina</a>
         </section>
 
         <main class="privacyverklaring">
