@@ -14,6 +14,7 @@ class MailController extends Controller
             'nummer' => 'required',
             'email' => 'required|email|max:255',
             'boodschap' => 'required|string',
+            'patient' => 'nullable',
             'robot' => ['required', 'in:7,zeven'], // Custom rule for "robot" field
         ], [
             'naam.required' => 'De naam is verplicht.',
@@ -26,25 +27,35 @@ class MailController extends Controller
             'robot.in' => 'Het antwoord op de vraag moet "7" of "zeven" zijn.', // Custom error message for "robot"
         ]);
 
+        $patient = $request->input('patient', false);
+        $wilpatientworden = "nee";
+
+        if ($patient) {
+            $wilpatientworden = 'ja';
+        } else {
+            $wilpatientworden = 'nee';
+        }
+
         // Send email to the visitor
-        Mail::send([], [], function ($message) use ($data) {
+        Mail::send([], [], function ($message) use ($data, $wilpatientworden) {
             $message->to($data['email'])
                     ->subject('Formulier PRAHOGE goed ontvangen')
                     ->from('afspraak@doktereggermont.be')
                     ->html(
-                        'U heeft een boodschap achtergelaten via www.prahoge.be.<br>Dokter Gerda Eggermont zal zo snel mogelijk contact met u opnemen.<br>Deze mail is geen bevestiging voor een afspraak. Voor dringende afspraken belt u best naar het nummer 022703399.<br><br>' .
+                        'U heeft een boodschap achtergelaten via www.prahoge.be.<br>Dokter Gerda Eggermont zal zo snel mogelijk contact met u opnemen.<br>Deze mail is geen bevestiging voor een afspraak. Voor dringende afspraken belt u best naar het nummer +3292267062.<br><br>' .
                         'Hier is een kopie van uw boodschap:<br>' .
                         '<strong>Voor- en achternaam:</strong> ' . e($data['naam']) . '<br>' .
                         '<strong>Email:</strong> ' . e($data['email']) . '<br>' .
                         '<strong>Telefoonnummer:</strong> ' . e($data['nummer']) . '<br>' .
-                        '<strong>Boodschap:</strong><br>' . nl2br(e($data['boodschap'])) . '<br><br>' .
+                        '<strong>Vraagstelling:</strong><br>' . nl2br(e($data['boodschap'])) . '<br>' .
+                        '<strong>Ik wens vast patiënt te worden: </strong>' . $wilpatientworden . '<br><br>' .
                         '<a href="https://www.prahoge.be">PRAHOGE</a> - Praktijk voor Holistische Geneeskunde' . 
                         '<br><strong>U kan niet antwoorden op deze mail!</strong><br>'
                     );
         });
 
         // Send email to the site owner
-        Mail::send([], [], function ($message) use ($data) {
+        Mail::send([], [], function ($message) use ($data, $wilpatientworden) {
             $message->to('gerda.eggermont@telenet.be') // Replace with the site owner's email
                     ->subject('Nieuwe afspraak door ' . e($data['naam']) )
                     ->from('afspraak@doktereggermont.be')
@@ -54,7 +65,8 @@ class MailController extends Controller
                         '<strong>Voor- en achternaam:</strong> ' . e($data['naam']) . '<br>' .
                         '<strong>Email:</strong> ' . e($data['email']) . '<br>' .
                         '<strong>Telefoonnummer:</strong> ' . e($data['nummer']) . '<br>' .
-                        '<strong>Boodschap:</strong><br>' . nl2br(e($data['boodschap']))
+                        '<strong>Vraagstelling:</strong><br>' . nl2br(e($data['boodschap'])) . 'br' .
+                        '<strong>' . e($data['naam']) . ' wenst vast patiënt te worden: </strong>' . $wilpatientworden . '.'
                     );
         });
 

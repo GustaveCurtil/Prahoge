@@ -40,7 +40,7 @@ address { border: 0.1em dotted var(--zwart); padding: var(--miniruimte); text-al
 
 section.afspraak, section.terug {height: 2em; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: var(--tussenruimte);}
 section a { font-weight: 400;}
-section.afspraak a { padding: 0.5em; background-color: var(--rood); color: var(--wit); line-height: 1em; text-decoration: none; }
+section.afspraak a { padding: 0.5em; background-color: rgb(59, 192, 59); color: var(--wit); line-height: 1em; text-decoration: none; }
 
 figure { width: 100%; object-fit: cover; margin-bottom: var(--tussenruimte);}
 figure img { width: 100% ;}
@@ -63,10 +63,39 @@ form { width: 100%; }
 form div { width: 100%; display: flex; flex-direction: column; }
 form div input, form div textarea { border-radius: 0; border: 1px solid var(--zwart); margin: var(--miniruimte) 0 calc(var(--miniruimte) * 2) 0; font-size: 1em;}
 form div input:not(input[type="submit"]) { height: 1.6em;}
+form div input[type="checkbox"] {width: 1.6em;}
+/* form div#patient {flex-direction: row; justify-content: space-between; align-items: center;} */
 form div textarea { height: 6.4em;}
 form div#verzenden { width: 100%; display: flex; align-items: center; margin: var(--miniruimte) 0; }
 form div#verzenden input { width: fit-content; padding: var(--miniruimte) calc(var(--miniruimte) * 2); background-color: var(--rood); color: var(--wit); border: none; font-size: 1em;}
 div.error {color: #ED1B24; width: 700;}
+
+
+main.patientencheck {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+main.patientencheck div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.patientencheck div p {
+    margin-top: 1em;
+    text-align: center;
+}
+
+main.patientencheck div a {
+    padding: 0.5em; background-color: rgb(59, 192, 59); color: var(--wit); line-height: 1em; text-decoration: none; font-weight: 400; width: 60%; text-align: center;
+}
+
+.vet {
+    font-weight: 400;
+}
 
 .ipad {display: none;}
 
@@ -200,12 +229,12 @@ div.error {color: #ED1B24; width: 700;}
     }
 
     .opleidingen {
-        width: 41%;
+        width: 39%;
         height: min-content;
     }
 
     .betekenen {
-        width: 52%;
+        width: 54%;
         height: min-content;
     }
 

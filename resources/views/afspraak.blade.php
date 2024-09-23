@@ -37,8 +37,12 @@
             
                 <!-- Message Field -->
                 <div>
-                    <label for="boodschap">Boodschap <b>*</b> @error('boodschap') <div class="error">({{ $message }})</div> @enderror</label>
+                    <label for="boodschap">Vraagstelling <b>*</b> @error('boodschap') <div class="error">({{ $message }})</div> @enderror</label>
                     <textarea name="boodschap" id="boodschap" cols="30" rows="10">{{ old('boodschap') }}</textarea>
+                </div>
+                <div id="patient">
+                    <label for="patient">Ik zoek zoek een nieuwe huisarts</label>
+                    <input type="checkbox" name="patient"></input>
                 </div>
             
                 <!-- CAPTCHA Field (Optional) -->
@@ -46,7 +50,7 @@
                     <label for="robot">Hoeveel letters telt P R A H O G E ? <b>*</b> @error('robot') <div class="error">({{ $message }})</div> @enderror</label>
                     <input type="text" name="robot" id="robot">
                 </div>
-            
+                
                 <!-- Submit Button -->
                 <div id="verzenden">
                     <input type="submit" value="VERZEND" class="btn btn-primary">
