@@ -16,10 +16,10 @@
         <main>
             <section class="visie">
                 <h3>VISIE</h3>
-                <p>Ik ben gepassioneerd en gedreven om mensen te helpen, hierbij geloof ik in een <b>totaalbehandeling</b> van het ziektebeeld en een <b>individuele benadering</b>. 
+                <p>Ik ben gepassioneerd en gedreven om mensen te helpen. Ik geloof in een <b>totaalbehandeling</b> van het ziektebeeld en een <b>individuele benadering</b>. 
                     Samen met de patiënt ga ik diepgaand en holistisch op zoek naar de <b>oorzaak van de klachten</b>. 
-                    Het doel is steeds om het <b>evenwicht zowel mentaal als fysiek te herstellen, duurzame resultaten te boeken en het zelf herstellend vermogen van de patiënt te stimuleren.</b></p>
-                <p>Hierbij bedien ik me van een brede waaier aan pijn- en regulatie <b>therapieën en behandelingsmethodes</b> waaronder:
+                    Het doel is steeds om het <b>evenwicht (zowel mentaal als fysiek) te herstellen, duurzame resultaten te boeken en het zelf herstellend vermogen van de patiënt te stimuleren.</b></p>
+                <p>Ik maak hierbij gebruik van pijn- en regulatie- <b>therapieën en behandelingsmethodes</b>. Waaronder:
                     Neuraaltherapie, PRP (bloedplaatjestherapie), Accupunctuur & Biopunctuur & Cupping, Voedings- & Orthomoleculaire advies, Bewegingsadvies & Medisch afslanken, Rookstopbegeleiding</p>
             </section>
             <figure class="mobile">
@@ -48,13 +48,13 @@
                     <li>Algemene geneeskunde, KU Leuven</li>
                     <li>Volksgezondheid en Milieu, Universiteit Gent</li>
                     <li>Orthomoleculaire geneeskunde, VIOW</li>
-                    <li>Erkend accupuncturist, JING MING</li>
+                    <li>Erkend accupuncturist</li>
                     <li>Erkend tabakoloog, KULeuven</li>
                     <li>Homeopathie, Unda, Boiron</li>
                     <li>Sportgeneeskunde : mesotherapie, biopunctuur, cupping, neuraal-pijntherapie,  PRP</li>
                 </ul>
             </section>
-            <p class="dankzij">Als eerstelijns huisarts is het mijn missie om u te helpen met alle mogelijk denkbare ziektebeelden en klachten. In goede samenwerking met collega-artsen en paramedici (osteopaten, chiropractors, psychologen en verpleegkundigen), begeleid en help ik patiënten op integrale wijze, dat wil zeggen: individuele oorzaken maximaal wegnemen en herval voorkomen. <b>Welkom!</b></p>
+            <p class="dankzij">Als eerstelijns huisarts is het mijn missie om u te helpen met alle mogelijk denkbare ziektebeelden en klachten. In goede samenwerking met collega-artsen en paramedici (osteopaten, chiropractors, psychologen en verpleegkundigen), begeleid en help ik patiënten op integrale wijze. Ik wil individuele oorzaken maximaal wegnemen en herval voorkomen. <b>Welkom!</b></p>
 
         </main>
         <figure class="desktop">

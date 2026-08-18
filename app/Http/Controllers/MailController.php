@@ -56,7 +56,7 @@ class MailController extends Controller
 
         // Send email to the site owner
         Mail::send([], [], function ($message) use ($data, $wilpatientworden) {
-            $message->to('gerda.eggermont@telenet.be') // Replace with the site owner's email
+            $message->to('prahogent@gmail.com') // Replace with the site owner's email
                     ->subject('Nieuwe afspraak door ' . e($data['naam']) )
                     ->from('afspraak@doktereggermont.be')
                     ->html(
